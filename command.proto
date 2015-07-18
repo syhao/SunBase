@@ -1,0 +1,20 @@
+package main;
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.goproto_getters_all) = false;
+option (gogoproto.goproto_enum_prefix_all) = false;
+
+enum OpType {
+	OpPut     = 0;
+	OpGet     = 1;
+	OpCPut    = 2;
+	OpDel     = 3;
+}
+message  Command{
+	required   OpType  Op = 1 [(gogoproto.nullable) = false];
+	required   string  K  = 2 [(gogoproto.nullable) = false];
+	required   string  V  = 3 [(gogoproto.nullable) = false];
+}

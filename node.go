@@ -95,8 +95,8 @@ func (n *Node) receive() chan pb.Message {
 
 func (n *Node) process(en pb.Entry) {
 	if en.Type == pb.EntryNormal {
-		c := NewCommand()
-		e := c.UnMarshal(en.Data)
+		c := new(Command)
+		e := c.Unmarshal(en.Data)
 		if e != nil {
 			fmt.Fprintln(os.Stdout, "unmarshal the command err:", e)
 		}

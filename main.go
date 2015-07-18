@@ -30,7 +30,7 @@ func main() {
 	}
 	time.Sleep(1 * time.Second)
 	for i := 0; i < 10000; i++ {
-		c := NewCommand()
+		c := new(Command)
 		c.Op = OpPut
 		c.K = fmt.Sprint(i)
 		c.V = fmt.Sprint("v", i)
