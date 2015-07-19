@@ -61,3 +61,10 @@ var sunbaseCommand = &cobra.Command{
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 	},
 }
+
+func init() {
+	sunbaseCommand.AddCommand(
+		initCmd,
+		startCmd,
+	)
+}
